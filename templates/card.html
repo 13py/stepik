@@ -1,0 +1,10 @@
+<div class="col-4" data-test="card">
+  <div class="card mb-3">
+    <img src="{{ tour.picture }}" style="height: 200px" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ tour.title }}</h5>
+      <p class="card-text">{{ tour.description|truncatewords:2}}</p>
+      <a href="{% url 'tour_url' key %}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+    </div>
+  </div>
+</div>

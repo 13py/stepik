@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+
+
+{% for key, tour in tours.items %}
+{% if tour.departure in request.path %}
+<h1 class="display-5 mt-4">Летим из <span data-test="from">{{ value.country }}</span></h1>
+<p class="mb-4">Найдено <span data-test="tourcount">{{ tours_count }}</span> туров, от <span data-test="pricemin">
+    26000</span> до
+    <span
+        data-test="pricemax">84600</span> и от <span data-test="nightsmax">4</span> ночей до <span
+        data-test="nightsmax">15</span> ночей</p>
+{% include 'card.html' %}
+
+{% endif %}
+{% endfor %}
+
+{% endblock %}
