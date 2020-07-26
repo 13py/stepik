@@ -2,8 +2,17 @@
   <div class="card mb-3">
     <img src="{{ tour.picture }}" style="height: 200px" class="card-img-top">
     <div class="card-body">
-      <h5 class="card-title">{{ tour.title }}</h5>
-      <p class="card-text">{{ tour.description|truncatewords:2}}</p>
+      <h5 class="card-title" style="display:flex; justify-content:space-between;">
+        <span>{{ tour.title }}</span> <span>{{ tour.stars}}★</span>
+      </h5>
+      <ul class="foter-card" style="display:flex; justify-content:center; font-size:12px; padding:0px">
+      <p >
+        <li style="list-style-type: none;"><b>{{ tour.country }}</b>|</li>
+        <li style="list-style-type: none;"><b>{{ tour.nights }} ночей</b>|</li>
+        <li style="list-style-type: none;"><b>{{ tour.date }}</b>|</li>
+        <li style="list-style-type: none;"><b>{{ tour.price }} руб.</b></li>
+       </ul>
+      <p class="card-text">{{ tour.description|truncatewords:3}}</p>
       <a href="{% url 'tour_url' key %}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
     </div>
   </div>

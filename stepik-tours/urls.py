@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from tours.views import MainView, DepartureView, TourView
+from tours.views import my_handler404, my_handler500
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,3 +25,6 @@ urlpatterns = [
     path('departure/<str:departure>/', DepartureView.as_view(), name='departure_url'),
     path('tour/<int:id>/', TourView.as_view(), name='tour_url'),
 ]
+
+handler404 = my_handler404
+handler500 = my_handler500

@@ -1,8 +1,5 @@
 {% extends 'base.html' %}
 {% block container %}
-{% for key, tour in tours.items %}
-
-{% if key == id %}
 
 <h1 class="display-3 mt-4" data-test="title">{{ tour.title }} {{ tour.stars }} ★</h1>
 
@@ -11,11 +8,10 @@
 <p class="lead" data-test="lead"><span data-test="country">{{ tour.country }}</span> Из <span
     data-text="departure">{% for key, departure in departures.items %}
     {% if key == tour.departure %}
-    {{ departure }}
+    {{ departure|slice:'3:' }}
     {% endif %}
     {% endfor %}
-  </span> <span data-text="nights">{{ tour.nights }}</span>
-  ночей
+  </span> <span data-text="nights">{{ tour.nights }}</span> ночей c {{ tour.date }}
 </p>
 
 <img data-test="picture" src="{{ tour.picture }}" class="w-75" alt="">
@@ -25,6 +21,5 @@
 <a href="" class="btn btn-success btn-lg" data-test="buybutton">Купить тур за <span
     data-test="price">{{ tour.price }}</span></a>
 </div>
-{% endif %}
-{% endfor %}
+
 {% endblock %}
